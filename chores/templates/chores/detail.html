@@ -1,1 +1,7 @@
-{{ chorelist }}
+<h1>{{ chorelist }}</h1>
+
+<ul>
+    {% for chore in chorelist.chore_set.all %}
+    <li>{{ chore }}</li>
+    {% endfor %}
+</ul>

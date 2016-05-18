@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from  django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from  django.http import HttpResponse, Http404
 from .models import ChoreList,Chore
 # Create your views here.
 
@@ -10,11 +10,14 @@ def index(request):
 
 
 def detail(request, chorelist_id):
-    list = ChoreList.objects.get(pk=chorelist_id)
+
+    list = get_object_or_404(ChoreList, pk=chorelist_id)
+
     return render(request, 'chores/detail.html', {'chorelist': list})
 
 def chores(request, chorelist_id):
-    return HttpResponse("You're looking at Chores from ChoreList #%s" % chorelist_id)
+    list = get_object_or_404(Chore, pk=chorelist_id)
+    return render(request, 'chores/chores.html')
 
 
 def choredetail(request, chorelist_id, chore_id):
