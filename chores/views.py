@@ -10,16 +10,15 @@ def index(request):
 
 
 def detail(request, chorelist_id):
-
     list = get_object_or_404(ChoreList, pk=chorelist_id)
-
     return render(request, 'chores/detail.html', {'chorelist': list})
 
-def chores(request, chorelist_id):
-    list = get_object_or_404(Chore, pk=chorelist_id)
-    return render(request, 'chores/chores.html')
+
 
 
 def choredetail(request, chorelist_id, chore_id):
-    return HttpResponse("You're looking at Chore #%s  from ChoreList # %s" %(chore_id, chorelist_id))
+    list = get_object_or_404(ChoreList, pk= chorelist_id)
+    chore = get_object_or_404(Chore, pk=chore_id)
+    return render(request, 'chores/choredetail.html', {'chorelist': list, 'chore': chore})
+
 
