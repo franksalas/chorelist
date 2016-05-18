@@ -1,0 +1,10 @@
+
+{% if chorelists %}
+<ul>
+    {% for chorelist in chorelists %}
+			<li class="list-group-item"><a href="/chores/{{chorelist.id}}/">{{chorelist.name}}</a></li>
+		{% endfor %}
+</ul>
+{% else %}
+<p>No chorelist are currently availiable</p>
+{% endif %}
