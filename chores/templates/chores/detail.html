@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block primary%}
 <h1>{{ chorelist }}</h1>
 
 <ul>
@@ -5,3 +8,4 @@
     <li><a href="/chores/{{ chorelist.id }}/chores/{{ chore.id }}">{{ chore }}</a></li>
     {% endfor %}
 </ul>
+{% endblock %}
